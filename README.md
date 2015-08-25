@@ -61,9 +61,16 @@ The firebase framework is installed in the basic project directory allowing for 
 ```objective-c
 Firebase *sensor1 = [[Firebase alloc] initWithUrl:@"https://sbid.firebaseio.com/raw_data/us_data_1"];
 Sensor_Value = (data[i+1] | data[i+2]<<8);
-[sensor1 setValue: Sensor_Value]
+[sensor1 setValue: Sensor_Value];
 ```
+The BLE low level data protocol is included in a framework provided by the creators of the BLE Shield (Redbear). When prompted by the user, the application constantly searches for an access point (shield) and attempts to connect to it. After connection is established the two way data stream is initiated between the mobile device and the BLE shield
 
 [Official Apple Core Bluetooth Documentation](https://developer.apple.com/library/mac/documentation/CoreBluetooth/Reference/CoreBluetooth_Framework/)
 ___
 ###Server Script - Python
+
+The python script uses a firebase library called [python-firebase](https://pypi.python.org/pypi/python-firebase/1.2). It accessed the database and takes the packed sensory data and writes it to a .txt file. The output of the file follows the following format:
+
+`Iteration, Server Timestamp, Arduino Timestamp, Ultra Sound 1, Ultra Sound 2, Ultra Sound 3, Yaw, Pitch, Roll, Acceleration_x, Acceleration_y, Acceleration_z`
+
+This data is ready to be processed after it is collected, or the necessary algorithms can be implemented in the script itself for realtime analysis.
