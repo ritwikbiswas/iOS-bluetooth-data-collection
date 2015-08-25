@@ -14,7 +14,7 @@
 ___
 ###Microcontroller - Arduino Uno (ATmega328P)
 
-A [Bluetooth Low Energy (BLE) shield](https://www.google.com) is mounted to the Arduino which allows a low level communication protocol between the Arduino and the iOS app. Also connected to the Arduino is three [ultra sound sensors](https://www.google.com) and an [accelerometer and gyroscope](https://www.google.com). 
+A [Bluetooth Low Energy (BLE) shield](http://redbearlab.com/bleshield/) is mounted to the Arduino which allows a low level communication protocol between the Arduino and the iOS app. Also connected to the Arduino is three [ultra sound sensors](http://www.maxbotix.com/documents/LV-MaxSonar-EZ_Datasheet.pdf) and an [accelerometer and gyroscope](http://playground.arduino.cc/Main/MPU-6050). 
 
 The following peripheral code is executed from the Arduino during data collection: https://codebender.cc/sketch:142102
 
@@ -28,7 +28,7 @@ Communication between the BLE shield and the iOS Application is formatted in a t
 
 The following table is to identify which [X] bytes correspond to which types of data:
 
-`Note: Data that was larger than 8 bits had to be packed in multiple bytes and sent seperately to be interpreted by the iOS application`
+`Note: Data that was larger than 8 bits had to be packed into multiple bytes and sent seperately to be interpreted by the iOS application`
 
 |[X] Byte       | ID            |
 | ------------- |:-------------:|
@@ -53,5 +53,17 @@ The following table is to identify which [X] bytes correspond to which types of 
 | 0x17      | accel_z_sign, accel_z_float |
 ___
 ###iOS Application - Objective C
+
+The iOS Application is written in Objective-C using Core Bluetooth framework for basic central/peripheral architecture. Data is recieved via the above mentioned BLE protocol. Necessary data is unpacked and displayed on the iOS interface. All relevant sensory data is then repacked and sent to a [firebase](https://www.firebase.com) database in the cloud to be accessed by any client devices or server scripts.
+
+The firebase framework is installed in the basic project directory allowing for basic url endpoint access/updating. An example upload to the firebase database:
+
+```objective-c
+Firebase *sensor1 = [[Firebase alloc] initWithUrl:@"https://sbid.firebaseio.com/raw_data/us_data_1"];
+Sensor_Value = (data[i+1] | data[i+2]<<8);
+[sensor1 setValue: Sensor_Value]
+```
+
+[Official Apple Core Bluetooth Documentation](https://developer.apple.com/library/mac/documentation/CoreBluetooth/Reference/CoreBluetooth_Framework/)
 ___
 ###Server Script - Python
