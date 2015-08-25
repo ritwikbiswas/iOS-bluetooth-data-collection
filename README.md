@@ -6,7 +6,7 @@
 
 #####There are three primary components to this architecture:
 #####- Microcontroller code
-#####- iOS code
+#####- iOS Application
 #####- Server script
 
 
@@ -27,6 +27,8 @@ Communication between the BLE shield and the iOS Application is formatted in a t
 [Z] -> Raw Data
 
 The following table is to identify which [X] bytes correspond to which types of data:
+
+`Note: Data that was larger than 8 bits had to be packed in multiple bytes and sent seperately to be interpreted by the iOS application`
 
 |[X] Byte       | ID            |
 | ------------- |:-------------:|
@@ -49,4 +51,7 @@ The following table is to identify which [X] bytes correspond to which types of 
 | 0x15      | accel_x_sign, accel_x_float |
 | 0x16      | accel_y_sign, accel_y_float |
 | 0x17      | accel_z_sign, accel_z_float |
-
+___
+###iOS Application - Objective C
+___
+###Server Script - Python
