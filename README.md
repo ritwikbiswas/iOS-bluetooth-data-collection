@@ -1,2 +1,10 @@
 # iOS-bluetooth-data-collection
-Cloud based data collection architecture for ultrasonic echo location
+
+###A cloud based  architecture for collecting ultrasonic sensory data
+
+
+
+There are three primary components to this architecture:
+- Item 1
+- Item 2
+- Item 3
