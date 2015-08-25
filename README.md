@@ -5,9 +5,9 @@
 
 
 #####There are three primary components to this architecture:
-#####- Microcontroller code
-#####- iOS Application
-#####- Server script
+#####- [Microcontroller code](https://github.com/ritwikbiswas1/iOS-bluetooth-data-collection/blob/master/README.md#microcontroller---arduino-uno-atmega328p)
+#####- [iOS Application](https://github.com/ritwikbiswas1/iOS-bluetooth-data-collection/blob/master/README.md#ios-application---objective-c)
+#####- [Server script](https://github.com/ritwikbiswas1/iOS-bluetooth-data-collection/blob/master/README.md#server-script---python)
 
 
 
