@@ -1,6 +1,6 @@
 # iOS-bluetooth-data-collection
 
-###A cloud based  architecture for collecting ultrasonic sensory data
+###A cloud based Internet of Things (IoT) for collecting ultrasonic sensory data
 
 
 
