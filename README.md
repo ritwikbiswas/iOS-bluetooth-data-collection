@@ -16,7 +16,7 @@ ___
 
 A [Bluetooth Low Energy (BLE) shield](http://redbearlab.com/bleshield/) is mounted to the Arduino which allows a low level communication protocol between the Arduino and the iOS app. Also connected to the Arduino is three [ultra sound sensors](http://www.maxbotix.com/documents/LV-MaxSonar-EZ_Datasheet.pdf) and an [accelerometer and gyroscope](http://playground.arduino.cc/Main/MPU-6050). 
 
-The following peripheral code is executed from the Arduino during data collection: https://codebender.cc/sketch:147099
+The following peripheral code is executed from the Arduino during data collection: https://codebender.cc/sketch:142102
 
 Communication between the BLE shield and the iOS Application is formatted in a three byte protocol: [X][Y][Z]
 
