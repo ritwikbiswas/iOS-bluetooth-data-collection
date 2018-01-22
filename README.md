@@ -1,18 +1,18 @@
 # iOS-bluetooth-data-collection
 
-###A cloud based Internet of Things (IoT) for collecting ultrasonic sensory data
+A cloud based Internet of Things (IoT) for collecting ultrasonic sensory data
 
 
 
-#####There are three primary components to this architecture:
-#####- [Microcontroller code](https://github.com/ritwikbiswas1/iOS-bluetooth-data-collection/blob/master/README.md#microcontroller---arduino-uno-atmega328p)
-#####- [iOS Application](https://github.com/ritwikbiswas1/iOS-bluetooth-data-collection/blob/master/README.md#ios-application---objective-c)
-#####- [Server script](https://github.com/ritwikbiswas1/iOS-bluetooth-data-collection/blob/master/README.md#server-script---python)
+There are three primary components to this architecture:
+* [Microcontroller code](https://github.com/ritwikbiswas1/iOS-bluetooth-data-collection/blob/master/README.md#microcontroller---arduino-uno-atmega328p)
+* [iOS Application](https://github.com/ritwikbiswas1/iOS-bluetooth-data-collection/blob/master/README.md#ios-application---objective-c)
+* [Server script](https://github.com/ritwikbiswas1/iOS-bluetooth-data-collection/blob/master/README.md#server-script---python)
 
 
 
 ___
-###Microcontroller - Arduino Uno (ATmega328P)
+# Microcontroller - Arduino Uno (ATmega328P)
 
 A [Bluetooth Low Energy (BLE) shield](http://redbearlab.com/bleshield/) is mounted to the Arduino which allows a low level communication protocol between the Arduino and the iOS app. Also connected to the Arduino is three [ultra sound sensors](http://www.maxbotix.com/documents/LV-MaxSonar-EZ_Datasheet.pdf) and an [accelerometer and gyroscope](http://playground.arduino.cc/Main/MPU-6050). 
 
@@ -52,7 +52,7 @@ The following table is to identify which [X] bytes correspond to which types of 
 | 0x16      | accel_y_sign, accel_y_float |
 | 0x17      | accel_z_sign, accel_z_float |
 ___
-###iOS Application - Objective C
+# iOS Application - Objective C
 
 The iOS Application is written in Objective-C using Core Bluetooth framework for basic central/peripheral architecture. Data is recieved via the above mentioned BLE protocol. Necessary data is unpacked and displayed on the iOS interface. All relevant sensory data is then repacked and sent to a [firebase](https://www.firebase.com) database in the cloud to be accessed by any client devices or server scripts.
 
@@ -67,7 +67,7 @@ The BLE low level data protocol is included in a framework provided by the creat
 
 [Official Apple Core Bluetooth Documentation](https://developer.apple.com/library/mac/documentation/CoreBluetooth/Reference/CoreBluetooth_Framework/)
 ___
-###Server Script - Python
+# Server Script - Python
 
 The python script uses a firebase library called [python-firebase](https://pypi.python.org/pypi/python-firebase/1.2). It accessed the database and takes the packed sensory data and writes it to a .txt file. The output of the file follows the following format:
 
